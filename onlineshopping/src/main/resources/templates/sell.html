@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Seller's Page</title>
+	<link href="/assets/css/bootstrap.css" rel="stylesheet"/>
+</head>
+<body>
+	<div class = "container-fluid">
+		<div class = "row">
+			<img th:src = "@{/images/sell.jpg}" />
+			
+		</div>
+		<div class = "row">
+			<div class = "col-lg-6">
+				<form th:action = "@{/sellerLogin}" method = "POST" name = "supplierLogin">
+					<label for ="username">User Name: </label>
+					<input type = "text" placeholder="Enter User Name" name="userId" /><br/>
+					<label for ="password">Password: </label>
+					<input type="password" name="password" placeholder="Enter Password" /><br/>
+					<button type="submit">Sign In </button>
+				</form>
+			</div>
+			<div class = "col-lg-6">
+				<p>New Seller Please Register</p>
+				<a th:href="@{/seller/register}">Register Here</a>
+			</div>
+		</div>
+	</div>
+	<script src="/assets/js/bootstrap.min.js"></script>
+</body>
+</html>

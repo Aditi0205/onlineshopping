@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="head">
+	<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="topNav">
+		<div class="container">
+			<div class="alignR">
+					<div class="span">
+	<a class="logo" th:href="@{~/home}"><span>Twitter Bootstrap ecommerce template</span> 
+		<img th:src="@{/assets/images/bicycle.jpg}" alt="MyCart"/>
+	</a>
+	</div>
+				<a class="active" th:href="@{~/home}"> <span class="icon-home"></span> Home</a> 
+				<a href="#"><span class="icon-user"></span> My Account</a> 
+				<a th:href="@{~/sell}"><span class="icon-edit"></span> Sell </a> 
+				<a th:href="@{~/contactUs/}"><span class="icon-envelope"></span> Contact us</a>
+				<a href="cart.html"><span class="icon-shopping-cart"></span></a>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</html>

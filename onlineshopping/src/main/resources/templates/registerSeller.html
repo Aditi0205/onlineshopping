@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>register</title>
+	<link href="/assets/css/bootstrap.css" rel="stylesheet"/>
+	<link href="/style.css" rel="stylesheet"/>
+	<script>
+function run() {
+    var x = document.getElementById("supplierStatus").value;
+    switch(x){
+    
+    case "pan_number_UNIQUE" :  {
+    	document.getElementsByClassName("wrongPAN")[0].style.visibility ="visibile";
+    	document.getElementsByClassName("wrongGst")[0].style.visibility ="hidden";
+     break;}
+    case "gst_number_UNIQUE" :  {
+    	document.getElementsByClassName("wrongPAN")[0].style.visibility ="hidden"; 
+    	document.getElementsByClassName("wrongGst")[0].style.visibility ="visibile";break;
+    }
+    
+    
+    default : { document.getElementsByClassName("wrongPAN")[0].style.visibility ="hidden";
+    			document.getElementsByClassName("wrongGst")[0].style.visibility ="hidden";
+    			break;
+    }
+    }
+    
+        return false;
+    }
+</script>  
+	
+</head>
+<body onLoad="run()">
+<input type="hidden" id="supplierStatus" th:value="${supplierStatus}"/>
+
+<input type="text"  name="PAN" />
+
+<button href=""> Submit</button>
+
+<form th:action = "@{/seller/register/submit}" method = "POST" name = "supplier">
+					<div th:text="${supplierStatus}"></div>
+					<label for ="email">E mail: </label>
+					<input type = "text" th:value="${supplier.email}" placeholder="Enter EmailAddress" name="email" /><br/>
+					<label for ="name">Name: </label>
+					<input type = "text" th:value="${supplier.name}" placeholder="Enter Name" name="name" /><br/>
+					<label for ="password">Password: </label>
+					<input type="password"  name="password" placeholder="Enter Password" /><br/>
+					<label for ="pan">PAN: </label>
+					<label class="wrongPAN">Wrong PAN</label>
+					<input type = "text" th:value="${supplier.panNumber}" placeholder="Enter EmailAddress" name="panNumber" /><br/>
+					<label for ="gstin">GSTIN: </label>
+					<label class=" wrongGst">Wrong gst</label>
+					<input type = "text" th:value="${supplier.gstNumber}" placeholder="Enter EmailAddress" name="gstNumber" /><br/>
+					<button type="submit">Sign Up </button>
+				</form>
+
+
+
+</body>
+</html>

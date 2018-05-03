@@ -1,0 +1,10 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="sidebar">
+<div class="well well-small">
+	<ul class="nav nav-list" th:each="category : ${productCategories}">
+		<li><a th:href="@{'/productCategory/'+${category.name}}"><h4><span class="icon-chevron-right" th:text="${category.name}"> </span></h4></a></li>		
+	</ul>
+</div>
+</div>
+</html>
